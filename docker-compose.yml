@@ -8,6 +8,8 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+    volumes:
+      - "./backups:/backups"      
     networks:
       network-banco:
         ipv4_address: 174.20.0.2
@@ -20,8 +22,6 @@ services:
       PGADMIN_DEFAULT_PASSWORD: pgadmin4
     depends_on: 
       - postgres
-    volumes:
-      - "./backups:/backups"
     ports:
       - 8080:80
     networks:
